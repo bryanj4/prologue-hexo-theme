@@ -1,0 +1,24 @@
+<head>
+    <%
+    var title = page.title;
+    if (is_archive()) {
+        title = 'Archives';
+        if(is_month()){
+            title += ': ' + page.year + '/' + page.month;
+        } else if(is_year()) {
+            title += ': ' + page.year;
+        }
+    } else if(is_category()){
+        title = 'Category: ' + page.category;
+    } else if(is_tag()) {
+        title = 'Tag: ' + page.tag;
+    }
+     %>
+    <title><% if(title){ %> <%= title %> | <% } %> <%= config.title %></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="sources/assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="sources/assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="sources/assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="sources/assets/css/ie9.css" /><![endif]-->
+  </head>
